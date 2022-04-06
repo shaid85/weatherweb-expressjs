@@ -1,0 +1,25 @@
+
+.tempinfo {
+	background: #e0e1e8;
+	border-radius: 0.3rem;
+}
+.top_layer.d-flex.justify-content-between {
+	padding: 1rem;
+	border-bottom: 1px solid #b3b1b1;
+}
+.top_layer p {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.main_layer {
+	padding: 1rem;
+}
+#city_name {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 600;
+}
+.middle_layer p {
+	font-size: 3rem;
+}

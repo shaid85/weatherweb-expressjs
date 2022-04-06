@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{>headerlinks}}
+  </head>
+  <body>
+<section class="header">
+{{>navbar}} 
+</section>
+
+ <!-- Hero section -->
+ <section class="hero">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="https://media.istockphoto.com/vectors/weather-icons-set-vector-id1225639749?k=20&m=1225639749&s=612x612&w=0&h=wMzoyNFDyx6ewmaBU_lnqp1R7EEpyvxVkdBcgb1Yt0o=" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="700" height="500">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Weather App</h1>
+<div class="temp_form my-4">
+  <form action="" class="row g-2">
+    <div class="col-auto">
+      <input type="text" id="cityName" class="form-control mb-3" placeholder="Enter your city name" autocomplete="off"/>
+    </div>
+    <div class="col-auto">
+      <input type="submit" value="Search" id="submitBtn" class="btn btn-primary">
+    </div>
+  </form>
+</div>
+<div class="tempinfo">
+  <div class="top_layer d-flex justify-content-between">
+    <p id="day">Tuesday</p>
+    <p id="today_data">13 OCT</p>
+  </div>
+  <div class="main_layer">
+    <h4 id="city_name">Get Output Here</h4>
+    <div class="middle_layer py-5 data_hide d-flex justify-content-around">
+      <p id="temp"><span id="tempval">0</span><sup>o</sup>C</p>
+      <p id="temp_status"><i class="fa fa-cloud"></i></p>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+ </section>
+
+{{>footer}}
+
+<script src="js/main.js"></script>
+<script>
+  const day = document.getElementById('day')
+  const today_data = document.getElementById('today_data')
+
+  const getCurrentDay = () => {
+    let weekday = new Array(7)
+    weekday[0] = "Sunday"
+    weekday[1] = "Monday"
+    weekday[2] = "Tuesday"
+    weekday[3] = "Wed"
+    weekday[4] = "Thursday"
+    weekday[5] = "Friday"
+    weekday[6] = "Saturday"
+
+    let currentTime = new Date()
+    let days = weekday[currentTime.getDay()]
+
+    day.innerText = days
+  }
+
+       const getCurrentTime = () => {
+        var months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "June",
+          "July",
+          "Aug",
+          "Sept",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+
+        var now = new Date();
+        var month = months[now.getMonth() + 1];
+        var date = now.getDate();
+
+        let hours = now.getHours();
+        let mins = now.getMinutes();
+
+        let periods = "AM";
+
+        if (hours > 11) {
+          periods = "PM";
+          if (hours > 12) hours -= 12;
+        }
+        if (mins < 10) {
+          mins = "0" + mins;
+        }
+
+        return `${month} ${date} | ${hours}:${mins}${periods}`;
+      };
+
+
+getCurrentDay()
+today_data.innerText = getCurrentTime()
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+  </body> 
+</html>
